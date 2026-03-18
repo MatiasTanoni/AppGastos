@@ -24,7 +24,7 @@
 
                 <div class="flex items-center gap-4">
                     @if (authService.usuarioActual()) {
-                    <span class="text-gray-800 font-bold text-lg">{{ authService.usuarioActual() }}</span>
+                    <span class="text-gray-800 font-bold text-lg">{{ authService.usuarioActual() | titlecase}}</span>
                     }
                     <button
                         class="text-gray-400 hover:text-red-600 transition bg-gray-50 hover:bg-red-50 p-2 rounded-lg"
@@ -77,7 +77,7 @@
             <div class="border-t border-gray-200 mt-4 pt-4">
                 @if (authService.usuarioActual()) {
                 <div class="font-semibold">
-                    Hola, {{ authService.usuarioActual() }}
+                    Hola, {{ authService.usuarioActual() | titlecase }}
                 </div>
                 }
                 <a routerLink="/login" (click)="toggleMenu()"
