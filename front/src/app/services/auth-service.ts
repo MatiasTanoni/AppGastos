@@ -22,6 +22,12 @@ export class AuthService {
     return this.http.post<any>(this.apiUrl, { nombre, password });
   }
 
+  logout() {
+    this.usuarioActual.set(null);
+
+    localStorage.removeItem('usuarioNombre');
+  }
+
   // 2. Función para actualizar la Signal cuando el login es exitoso
   guardarUsuario(nombre: string) {
     this.usuarioActual.set(nombre);

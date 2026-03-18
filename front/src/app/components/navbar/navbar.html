@@ -26,8 +26,9 @@
                     @if (authService.usuarioActual()) {
                     <span class="text-gray-800 font-bold text-lg">{{ authService.usuarioActual() | titlecase}}</span>
                     }
-                    <button
-                        class="text-gray-400 hover:text-red-600 transition bg-gray-50 hover:bg-red-50 p-2 rounded-lg"
+
+                    <button (click)="logOut()"
+                        class="text-gray-400 hover:text-red-600 transition bg-gray-50 hover:bg-red-50 p-2 rounded-lg cursor-pointer"
                         title="Cerrar Sesión">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -76,11 +77,12 @@
 
             <div class="border-t border-gray-200 mt-4 pt-4">
                 @if (authService.usuarioActual()) {
-                <div class="font-semibold">
+                <div class="font-semibold text-gray-800 px-4 mb-2 text-lg">
                     Hola, {{ authService.usuarioActual() | titlecase }}
                 </div>
                 }
-                <a routerLink="/login" (click)="toggleMenu()"
+
+                <a (click)="logOut(); toggleMenu()"
                     class="block px-4 py-4 rounded-xl text-lg font-bold text-red-600 hover:bg-red-50 mt-2 transition cursor-pointer">
                     Cerrar Sesión
                 </a>
