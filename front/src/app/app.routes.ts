@@ -2,10 +2,9 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        // 1. Atrapamos cuando entran a la raíz de la app (localhost:4200)
         path: '',
         redirectTo: 'login',
-        pathMatch: 'full' // Esto es clave: exige que la URL esté exactamente vacía para redirigir
+        pathMatch: 'full'
     },
     {
         path: 'login',

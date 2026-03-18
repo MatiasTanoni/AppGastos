@@ -23,7 +23,9 @@
                 <div class="border-l border-gray-200 h-8 mx-2"></div>
 
                 <div class="flex items-center gap-4">
-                    <span class="text-gray-800 font-bold text-lg">Papá</span>
+                    @if (authService.usuarioActual()) {
+                    <span class="text-gray-800 font-bold text-lg">{{ authService.usuarioActual() }}</span>
+                    }
                     <button
                         class="text-gray-400 hover:text-red-600 transition bg-gray-50 hover:bg-red-50 p-2 rounded-lg"
                         title="Cerrar Sesión">
@@ -73,9 +75,11 @@
             </a>
 
             <div class="border-t border-gray-200 mt-4 pt-4">
-                <div class="flex items-center px-4 py-2">
-                    <div class="text-lg font-bold text-gray-800">Usuario: Papá</div>
+                @if (authService.usuarioActual()) {
+                <div class="font-semibold">
+                    Hola, {{ authService.usuarioActual() }}
                 </div>
+                }
                 <a routerLink="/login" (click)="toggleMenu()"
                     class="block px-4 py-4 rounded-xl text-lg font-bold text-red-600 hover:bg-red-50 mt-2 transition cursor-pointer">
                     Cerrar Sesión
