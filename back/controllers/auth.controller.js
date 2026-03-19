@@ -2,7 +2,7 @@ const db = require('../config/db'); // Tu archivo de conexión
 
 const login = (req, res) => {
     const { nombre, password } = req.body;
-    
+
     // Buscamos si existe un usuario con ese nombre y contraseña en tu tabla
     const query = 'SELECT * FROM users WHERE nombre = ? AND password = ?';
 
@@ -19,7 +19,7 @@ const login = (req, res) => {
         // Si encontró al usuario, el login es exitoso
         const usuario = resultados[0];
         res.json({
-            mensaje: '¡Login exitoso, bro!',
+            mensaje: '¡Login exitoso!',
             usuario: {
                 id: usuario.id,
                 nombre: usuario.nombre
