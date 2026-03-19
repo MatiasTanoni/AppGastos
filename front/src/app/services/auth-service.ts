@@ -26,6 +26,7 @@ export class AuthService {
     this.usuarioActual.set(null);
 
     localStorage.removeItem('usuarioNombre');
+    localStorage.setItem('isLogged', 'false');
   }
 
   // 2. Función para actualizar la Signal cuando el login es exitoso

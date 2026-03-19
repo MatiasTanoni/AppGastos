@@ -22,7 +22,7 @@ export class Login {
       next: (respuesta: any) => {
         console.log(respuesta.mensaje);
         console.log("holaaa", respuesta.usuario);
-
+        localStorage.setItem('isLogged', 'true');
         this.authService.guardarUsuario(respuesta.usuario.nombre);
 
         this.router.navigate(['/home']);
